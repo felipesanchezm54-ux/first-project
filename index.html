@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Lista de Tareas</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f4f4f8;
+      display: flex;
+      justify-content: center;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+
+    .app {
+      background: white;
+      width: 100%;
+      max-width: 480px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      padding: 24px;
+    }
+
+    h1 {
+      font-size: 22px;
+      margin-bottom: 16px;
+      color: #222;
+    }
+
+    .input-row {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    #task-input {
+      flex: 1;
+      padding: 10px 12px;
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+
+    #add-btn {
+      padding: 10px 16px;
+      border: none;
+      border-radius: 8px;
+      background: #4f46e5;
+      color: white;
+      font-size: 15px;
+      cursor: pointer;
+    }
+
+    #add-btn:hover {
+      background: #4338ca;
+    }
+
+    #task-list {
+      list-style: none;
+    }
+
+    #task-list li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 0;
+      border-bottom: 1px solid #eee;
+    }
+
+    #task-list li:last-child {
+      border-bottom: none;
+    }
+
+    #task-list li span {
+      flex: 1;
+      font-size: 15px;
+    }
+
+    #task-list li.done span {
+      text-decoration: line-through;
+      color: #999;
+    }
+
+    .delete-btn {
+      background: none;
+      border: none;
+      color: #d33;
+      font-size: 18px;
+      cursor: pointer;
+      line-height: 1;
+    }
+
+    #empty-msg {
+      color: #999;
+      font-size: 14px;
+      text-align: center;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="app">
+    <h1>📝 Mi Lista de Tareas</h1>
+
+    <div class="input-row">
+      <input type="text" id="task-input" placeholder="¿Qué necesitas hacer?">
+      <button id="add-btn">Agregar</button>
+    </div>
+
+    <ul id="task-list"></ul>
+    <p id="empty-msg">No tienes tareas todavía. ¡Agrega una!</p>
+  </div>
+
+  <script>
+    const input = document.getElementById('task-input');
+    const addBtn = document.getElementById('add-btn');
+    const list = document.getElementById('task-list');
+    const emptyMsg = document.getElementById('empty-msg');
+
+    // Cargamos las tareas guardadas (si las hay) al abrir la página
+    let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
+
+    function saveTasks() {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    function render() {
+      list.innerHTML = '';
+      emptyMsg.style.display = tasks.length === 0 ? 'block' : 'none';
+
+      tasks.forEach((task, index) => {
+        const li = document.createElement('li');
+        if (task.done) li.classList.add('done');
+
+        const span = document.createElement('span');
+        span.textContent = task.text;
+        span.addEventListener('click', () => toggleTask(index));
+
+        const deleteBtn = document.createElement('button');
+        deleteBtn.textContent = '✕';
+        deleteBtn.className = 'delete-btn';
+        deleteBtn.addEventListener('click', () => deleteTask(index));
+
+        li.appendChild(span);
+        li.appendChild(deleteBtn);
+        list.appendChild(li);
+      });
+    }
+
+    function addTask() {
+      const text = input.value.trim();
+      if (text === '') return;
+
+      tasks.push({ text, done: false });
+      input.value = '';
+      saveTasks();
+      render();
+    }
+
+    function toggleTask(index) {
+      tasks[index].done = !tasks[index].done;
+      saveTasks();
+      render();
+    }
+
+    function deleteTask(index) {
+      tasks.splice(index, 1);
+      saveTasks();
+      render();
+    }
+
+    addBtn.addEventListener('click', addTask);
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter') addTask();
+    });
+
+    render();
+  </script>
+
+</body>
+</html>
