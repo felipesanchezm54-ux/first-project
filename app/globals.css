@@ -1,0 +1,223 @@
+@import "tailwindcss";
+
+/* ───────────────────────────────────────────────────────────────────────────
+   NEXO · Tokens de diseño
+   Colores de marca extraídos de assets/logo-nexo.png:
+     verde   #085042  (nodo oscuro, líneas y wordmark)
+     teal    #1F9E75  (nodo verde)
+     morado  #7F77DC  (nodo inferior)
+   Los tonos "on-dark" / "on-light" son derivados de esos tres para cumplir
+   WCAG 2.2 AA (4.5:1 en texto). Relaciones verificadas en docs/tabla-ux.md.
+   ─────────────────────────────────────────────────────────────────────────── */
+:root {
+  /* Marca */
+  --brand-green: #085042;
+  --brand-teal: #1f9e75;
+  --brand-purple: #7f77dc;
+
+  /* Base oscura (verde muy profundo derivado de --brand-green) */
+  --night: #03201a;
+  --night-2: #0a2e26;
+  --night-3: #0f3a30;
+
+  /* Base clara */
+  --mist: #f2f7f4;
+  --paper: #ffffff;
+
+  /* Acentos derivados */
+  --teal-electric: #3dd9a4; /* 9.5:1 sobre --night */
+  --teal-deep: #127a59; /* 4.9:1 sobre --mist */
+  --purple-soft: #a8a2f2; /* 7.4:1 sobre --night */
+  --purple-deep: #5047bf; /* 6.5:1 sobre --mist */
+
+  /* Tokens semánticos · tono oscuro (por defecto) */
+  --c-bg: var(--night);
+  --c-surface: var(--night-2);
+  --c-surface-2: var(--night-3);
+  --c-fg: #e6f2ed; /* 14.9:1 */
+  --c-muted: #a3bfb4; /* 8.7:1 */
+  --c-border: rgb(230 242 237 / 0.12);
+  --c-accent: var(--teal-electric);
+  --c-accent-2: var(--purple-soft);
+  --c-link: var(--teal-electric);
+  --c-cta: var(--teal-electric);
+  --c-cta-fg: var(--night); /* 9.5:1 */
+  --c-danger: #ff9b9b;
+  --c-success: var(--teal-electric);
+
+  --r-card: 1.25rem;
+  --radius-pill: 999px;
+  --sh-lift: 0 18px 40px -18px rgb(0 0 0 / 0.55);
+  --header-h: 4.5rem;
+
+  /* Escala tipográfica fluida (375 px → 1440 px) */
+  --step-display: clamp(2.6rem, 1.45rem + 5.2vw, 6rem);
+  --step-h1: clamp(2.25rem, 1.55rem + 3vw, 4rem);
+  --step-h2: clamp(1.8rem, 1.35rem + 1.9vw, 2.9rem);
+  --step-h3: clamp(1.2rem, 1.08rem + 0.5vw, 1.5rem);
+  --step-lead: clamp(1.075rem, 1.02rem + 0.3vw, 1.3rem);
+  --step-body: 1rem;
+  --step-sm: 0.875rem;
+
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Secciones claras alternadas: mismos nombres de token, otros valores. */
+[data-tone="light"] {
+  --c-bg: var(--mist);
+  --c-surface: var(--paper);
+  --c-surface-2: #e6efea;
+  --c-fg: #06231c; /* 15.3:1 */
+  --c-muted: #4b6159; /* 6.2:1 */
+  --c-border: rgb(6 35 28 / 0.12);
+  --c-accent: var(--teal-deep);
+  --c-accent-2: var(--purple-deep);
+  --c-link: var(--teal-deep);
+  --c-danger: #b42318;
+  --c-success: var(--teal-deep);
+  --sh-lift: 0 18px 40px -20px rgb(6 35 28 / 0.35);
+}
+
+@theme inline {
+  --color-bg: var(--c-bg);
+  --color-surface: var(--c-surface);
+  --color-surface-2: var(--c-surface-2);
+  --color-fg: var(--c-fg);
+  --color-muted: var(--c-muted);
+  --color-border: var(--c-border);
+  --color-accent: var(--c-accent);
+  --color-accent-2: var(--c-accent-2);
+  --color-link: var(--c-link);
+  --color-cta: var(--c-cta);
+  --color-cta-fg: var(--c-cta-fg);
+  --color-danger: var(--c-danger);
+  --color-success: var(--c-success);
+  --color-brand-green: var(--brand-green);
+  --color-brand-teal: var(--brand-teal);
+  --color-brand-purple: var(--brand-purple);
+  --color-night: var(--night);
+  --color-mist: var(--mist);
+
+  --font-display: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --text-display: var(--step-display);
+  --text-h1: var(--step-h1);
+  --text-h2: var(--step-h2);
+  --text-h3: var(--step-h3);
+  --text-lead: var(--step-lead);
+
+  --radius-card: var(--r-card);
+  --shadow-lift: var(--sh-lift);
+  --ease-out: var(--ease);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    background: var(--c-bg);
+    color: var(--c-fg);
+    font-family: var(--font-sans);
+    font-size: var(--step-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  [data-tone] {
+    background: var(--c-bg);
+    color: var(--c-fg);
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    line-height: 1.08;
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  /* Ley de Semejanza + Jakob: los enlaces dentro de texto siempre subrayados y del mismo color. */
+  .prose-nexo a,
+  a.link {
+    color: var(--c-link);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 1px;
+  }
+  .prose-nexo a:hover,
+  a.link:hover {
+    text-decoration-thickness: 2px;
+  }
+  /* Foco visible y personalizado: doble anillo visible en fondo claro y oscuro. */
+  :focus-visible {
+    outline: 3px solid var(--c-accent);
+    outline-offset: 3px;
+    box-shadow: 0 0 0 6px var(--c-bg);
+    border-radius: 6px;
+  }
+  ::selection {
+    background: var(--brand-purple);
+    color: #fff;
+  }
+}
+
+@layer components {
+  .container-nexo {
+    width: 100%;
+    max-width: 78rem;
+    margin-inline: auto;
+    padding-inline: 1rem;
+  }
+  @media (min-width: 768px) {
+    .container-nexo {
+      padding-inline: 2rem;
+    }
+  }
+  .eyebrow {
+    font-family: var(--font-display);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--c-accent);
+  }
+  .text-gradient {
+    background: linear-gradient(100deg, var(--teal-electric) 0%, var(--purple-soft) 90%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  [data-tone="light"] .text-gradient {
+    background-image: linear-gradient(100deg, var(--teal-deep) 0%, var(--purple-deep) 90%);
+  }
+  .card {
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-card);
+  }
+  .grain {
+    background-image:
+      radial-gradient(60rem 30rem at 85% -10%, rgb(127 119 220 / 0.22), transparent 60%),
+      radial-gradient(50rem 30rem at -10% 20%, rgb(31 158 117 / 0.25), transparent 60%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
