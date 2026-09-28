@@ -53,15 +53,15 @@ export function DashboardPreview() {
       <div className="mt-6">
         <div className="flex items-baseline justify-between text-sm">
           <span className="font-semibold">Avance hacia la meta de +20 % en conversión</span>
-          <span className="font-semibold">90 %</span>
+          <span className="font-semibold">89 %</span>
         </div>
-        <div className="mt-2 h-3 overflow-hidden rounded-full" style={{ background: "#d7ece4" }} role="img" aria-label="Avance de 90 % hacia la meta: +17,9 % de +20 %">
-          <div className="h-full rounded-full" style={{ width: "90%", background: chartColors.single }} />
+        <div className="mt-2 h-3 overflow-hidden rounded-full" style={{ background: "#d7ece4" }} role="img" aria-label="Avance de 89 % hacia la meta: +17,9 % de +20 %">
+          <div className="h-full rounded-full" style={{ width: "89%", background: chartColors.single }} />
         </div>
         <p className="mt-2 text-xs text-muted">+17,9 % de +20 % · mes 5 de 6</p>
       </div>
       <figcaption className="sr-only">
-        Vista previa del panel: 277 leads en el mes, 48 % de apertura de email, 807 clics a WhatsApp y 90 % de avance hacia la meta. Datos de
+        Vista previa del panel: 277 leads en el mes, 48 % de apertura de email, 807 clics a WhatsApp y 89 % de avance hacia la meta. Datos de
         demostración.
       </figcaption>
     </figure>

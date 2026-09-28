@@ -104,11 +104,11 @@ export function VeraWidget() {
                   <div className="mt-2 flex flex-wrap gap-2">
                     {m.links.map((l) =>
                       l.href.startsWith("http") ? (
-                        <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-9 items-center rounded-full border border-accent px-3 text-xs font-semibold text-accent">
+                        <a key={l.href} href={l.href} target="_blank" rel="noopener noreferrer" className="inline-flex min-h-11 items-center rounded-full border border-accent px-4 text-xs font-semibold text-accent">
                           {l.label}
                         </a>
                       ) : (
-                        <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="inline-flex min-h-9 items-center rounded-full border border-accent px-3 text-xs font-semibold text-accent">
+                        <Link key={l.href} href={l.href} onClick={() => setOpen(false)} className="inline-flex min-h-11 items-center rounded-full border border-accent px-4 text-xs font-semibold text-accent">
                           {l.label}
                         </Link>
                       ),
