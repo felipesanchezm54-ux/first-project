@@ -62,7 +62,7 @@ function DataTable({ caption, head, rows }: { caption: string; head: string[]; r
   return (
     <details className="mt-4 text-sm">
       <summary className="inline-flex min-h-10 cursor-pointer items-center font-semibold text-link underline underline-offset-4">Ver datos en tabla</summary>
-      <div className="mt-2 overflow-x-auto">
+      <div className="relative mt-2 overflow-x-auto" tabIndex={0} role="region" aria-label={`${caption} (tabla desplazable)`}>
         <table className="w-full text-left">
           <caption className="sr-only">{caption}</caption>
           <thead>
@@ -421,20 +421,24 @@ export function Dashboard({ initial, userName }: { initial: DashboardData; userN
               Rendimiento por canal
             </h2>
             <div className="mt-6 grid gap-8 lg:grid-cols-[1.3fr_1fr]">
-              <div className="h-72">
+              <div className="h-80">
                 <ResponsiveContainer width="100%" height="100%">
-                  <BarChart data={data.channels} margin={{ top: 8, right: 8, bottom: 0, left: -8 }} barGap={2}>
-                    <CartesianGrid vertical={false} stroke={chartColors.grid} />
-                    <XAxis dataKey="label" tick={{ fill: chartColors.axis, fontSize: 12 }} axisLine={{ stroke: chartColors.grid }} tickLine={false} interval={0} />
-                    <YAxis tick={{ fill: chartColors.axis, fontSize: 12 }} axisLine={false} tickLine={false} allowDecimals={false} />
+                  <BarChart data={data.channels} layout="vertical" margin={{ top: 0, right: 40, bottom: 0, left: 8 }} barGap={2} barCategoryGap={10}>
+                    <CartesianGrid horizontal={false} stroke={chartColors.grid} />
+                    <XAxis type="number" tick={{ fill: chartColors.axis, fontSize: 12 }} axisLine={false} tickLine={false} allowDecimals={false} />
+                    <YAxis type="category" dataKey="label" width={104} tick={{ fill: chartColors.ink, fontSize: 13 }} axisLine={false} tickLine={false} />
                     <Tooltip cursor={{ fill: "rgba(6,35,28,0.04)" }} content={<ChartTooltip />} />
                     <Legend verticalAlign="top" align="right" height={32} iconType="circle" wrapperStyle={{ fontSize: 13, color: chartColors.ink }} />
-                    <Bar dataKey="leads" name="Leads" fill={SERIES.a} radius={[4, 4, 0, 0]} maxBarSize={24} />
-                    <Bar dataKey="conversiones" name="Conversiones" fill={SERIES.b} radius={[4, 4, 0, 0]} maxBarSize={24} />
+                    <Bar dataKey="leads" name="Leads" fill={SERIES.a} radius={[0, 4, 4, 0]} maxBarSize={14}>
+                      <LabelList dataKey="leads" position="right" fill={chartColors.ink} fontSize={12} formatter={(v: unknown) => nf(Number(v))} />
+                    </Bar>
+                    <Bar dataKey="conversiones" name="Conversiones" fill={SERIES.b} radius={[0, 4, 4, 0]} maxBarSize={14}>
+                      <LabelList dataKey="conversiones" position="right" fill={chartColors.ink} fontSize={12} formatter={(v: unknown) => nf(Number(v))} />
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </div>
-              <div className="overflow-x-auto">
+              <div className="relative overflow-x-auto" tabIndex={0} role="region" aria-label="Rendimiento por canal (tabla desplazable)">
                 <table className="w-full text-left text-sm">
                   <caption className="sr-only">Leads, conversiones, inversión y costo por lead por canal</caption>
                   <thead>
@@ -483,7 +487,7 @@ export function Dashboard({ initial, userName }: { initial: DashboardData; userN
             {data.campaigns.length === 0 ? (
               <p className="mt-4 text-muted">Este canal no tiene campañas registradas.</p>
             ) : (
-              <div className="mt-4 overflow-x-auto">
+              <div className="relative mt-4 overflow-x-auto" tabIndex={0} role="region" aria-label="Estado de campañas (tabla desplazable)">
                 <table className="w-full min-w-[40rem] text-left text-sm">
                   <caption className="sr-only">Campañas de Tienda Óptica con estado, inversión y resultados</caption>
                   <thead>

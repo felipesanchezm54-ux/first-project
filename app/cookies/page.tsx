@@ -26,7 +26,7 @@ export default function CookiesPage() {
       </p>
 
       <h2>Cookies que usamos</h2>
-      <div className="overflow-x-auto rounded-xl border border-border">
+      <div className="relative overflow-x-auto rounded-xl border border-border" tabIndex={0} role="region" aria-label="Tabla de cookies (desplazable)">
         <table>
           <caption className="sr-only">Cookies del sitio de NEXO</caption>
           <thead>

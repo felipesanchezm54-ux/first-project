@@ -79,7 +79,7 @@ export default function PlanesPage() {
           title="¿Qué incluye cada plan de marketing digital?"
           answer="La diferencia principal está en la profundidad de la estrategia, el número de piezas al mes y el tipo de pauta. El panel de resultados está en los tres."
         />
-        <div className="mt-12 overflow-x-auto rounded-[var(--r-card)] border border-border">
+        <div className="relative mt-12 overflow-x-auto rounded-[var(--r-card)] border border-border" tabIndex={0} role="region" aria-label="Tabla comparativa de planes (desplazable)">
           <table className="w-full min-w-[40rem] border-collapse text-left">
             <caption className="sr-only">Comparación de funcionalidades entre los planes Starter, Growth y Full Brand</caption>
             <thead className="bg-surface-2">

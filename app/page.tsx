@@ -9,7 +9,7 @@ import { Section, SectionHeading } from "@/components/sections/section";
 import { ServiceCard } from "@/components/sections/service-card";
 import { Testimonials } from "@/components/sections/testimonials";
 import { DashboardPreview } from "@/components/sections/dashboard-preview";
-import { QuickLeadForm } from "@/components/forms/quick-lead-form";
+import { LazyQuickLeadForm } from "@/components/lazy/lazy-forms";
 import { TiendaOpticaMark } from "@/components/sections/tienda-optica-mark";
 import { services } from "@/lib/content/services";
 import { differentiators } from "@/lib/content/company";
@@ -193,7 +193,7 @@ export default function HomePage() {
                   gratuita de 30 minutos.
                 </p>
               </div>
-              <QuickLeadForm />
+              <LazyQuickLeadForm />
             </div>
           </div>
         </div>

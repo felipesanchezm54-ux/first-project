@@ -270,9 +270,9 @@ export default function TiendaOpticaCase() {
             Cada contacto suma puntos por lo que hace: abrir un correo suma poco, hacer clic en WhatsApp suma mucho. Así el equipo de la óptica sabe a
             quién llamar primero.
           </p>
-          <ol className="mt-6 flex overflow-hidden rounded-2xl" aria-label="Bandas de lead scoring de frío a fidelizado">
+          <ol className="mt-6 flex flex-col overflow-hidden rounded-2xl sm:flex-row" aria-label="Bandas de lead scoring de frío a fidelizado">
             {bands.map((b, i) => (
-              <li key={b.name} className="flex-1 border-r-2 border-[var(--c-bg)] p-3 last:border-r-0 md:p-4" style={{ background: chartColors.ordinal[i], color: i < 2 ? "#06231c" : "#ffffff" }}>
+              <li key={b.name} className="flex-1 border-b-2 border-[var(--c-bg)] p-3 last:border-0 sm:border-b-0 sm:border-r-2 md:p-4" style={{ background: chartColors.ordinal[i], color: i < 2 ? "#06231c" : "#ffffff" }}>
                 <p className="font-display text-sm font-semibold md:text-base">{b.name}</p>
                 <p className="text-xs md:text-sm">{b.range} pts</p>
               </li>
@@ -315,7 +315,7 @@ export default function TiendaOpticaCase() {
               <h3 className="flex items-center gap-2 text-h3 font-semibold">
                 <Mail aria-hidden className="h-6 w-6 text-accent" /> Email marketing en Mailchimp
               </h3>
-              <div className="mt-5 overflow-x-auto">
+              <div className="relative mt-5 overflow-x-auto" tabIndex={0} role="region" aria-label="Flujos de email (tabla desplazable)">
                 <table className="w-full text-left text-sm">
                   <caption className="sr-only">Flujos de email automatizados de Tienda Óptica</caption>
                   <thead>

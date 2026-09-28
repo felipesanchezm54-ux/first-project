@@ -2,6 +2,9 @@ import { z } from "zod";
 import { services } from "@/lib/content/services";
 import { plans } from "@/lib/content/plans";
 
+// Sin compilación JIT (usa Function()): así Zod respeta la Content Security Policy sin 'unsafe-eval'.
+z.config({ jitless: true });
+
 /**
  * Esquemas compartidos: el mismo archivo valida en el navegador (React Hook Form)
  * y en el servidor (Route Handlers). Ley de Postel: se acepta el dato en varios

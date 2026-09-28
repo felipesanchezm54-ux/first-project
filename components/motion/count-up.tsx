@@ -31,7 +31,11 @@ export function CountUp({ value, prefix = "", suffix = "", decimals, className }
       ease: [0.22, 1, 0.36, 1],
       onUpdate: (v) => setDisplay(format(v, d)),
     });
-    return () => controls.stop();
+    return () => {
+      // Si el efecto se reinicia (p. ej. useReducedMotion pasa de null a false), se vuelve a animar.
+      controls.stop();
+      started.current = false;
+    };
   }, [inView, reduce, value, d]);
 
   return (

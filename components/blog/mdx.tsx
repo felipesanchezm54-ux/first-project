@@ -8,7 +8,7 @@ const components = {
   a: ({ href = "", ...props }: ComponentProps<"a">) =>
     href.startsWith("/") ? <Link href={href} {...props} /> : <a href={href} target="_blank" rel="noopener noreferrer" {...props} />,
   table: (props: ComponentProps<"table">) => (
-    <div className="overflow-x-auto rounded-xl border border-border">
+    <div className="relative overflow-x-auto rounded-xl border border-border" tabIndex={0} role="region" aria-label="Tabla (desplazable)">
       <table {...props} />
     </div>
   ),

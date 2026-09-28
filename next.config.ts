@@ -18,6 +18,8 @@ const csp = [
 
 const nextConfig: NextConfig = {
   poweredByHeader: false,
+  // CSS crítico incrustado en el HTML: elimina la petición de CSS que bloqueaba el render (mejora LCP).
+  experimental: { inlineCss: true },
   images: { formats: ["image/avif", "image/webp"] },
   async headers() {
     return [

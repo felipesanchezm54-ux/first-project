@@ -88,7 +88,7 @@ export default async function PostPage({ params }: Props) {
 
         <div data-tone="light" className="py-16">
           <div className="container-nexo grid gap-12 lg:grid-cols-[1fr_16rem]">
-            <div className="prose-nexo max-w-[68ch]">
+            <div className="prose-nexo min-w-0 max-w-[68ch]">
               <Mdx source={post.content} />
             </div>
             <aside className="order-first lg:order-last">

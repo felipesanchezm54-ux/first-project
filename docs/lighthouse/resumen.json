@@ -1,0 +1,47 @@
+{
+  "fecha": "2026-09-28T01:00:18.237Z",
+  "base": "http://localhost:3100",
+  "dispositivo": "móvil",
+  "resultados": [
+    {
+      "página": "/",
+      "Performance": 94,
+      "Accesibilidad": 100,
+      "Buenas prácticas": 100,
+      "SEO": 100,
+      "LCP": "2.9 s",
+      "CLS": "0.035",
+      "TBT": "140 ms"
+    },
+    {
+      "página": "/servicios",
+      "Performance": 94,
+      "Accesibilidad": 100,
+      "Buenas prácticas": 100,
+      "SEO": 100,
+      "LCP": "2.9 s",
+      "CLS": "0.035",
+      "TBT": "120 ms"
+    },
+    {
+      "página": "/blog",
+      "Performance": 95,
+      "Accesibilidad": 100,
+      "Buenas prácticas": 100,
+      "SEO": 100,
+      "LCP": "2.8 s",
+      "CLS": "0.035",
+      "TBT": "80 ms"
+    },
+    {
+      "página": "/contacto",
+      "Performance": 96,
+      "Accesibilidad": 100,
+      "Buenas prácticas": 100,
+      "SEO": 100,
+      "LCP": "2.5 s",
+      "CLS": "0.035",
+      "TBT": "130 ms"
+    }
+  ]
+}

@@ -119,6 +119,8 @@
     -webkit-text-size-adjust: 100%;
   }
   body {
+    /* Defensa ante desbordes horizontales en móvil (clip no rompe position: sticky). */
+    overflow-x: clip;
     background: var(--c-bg);
     color: var(--c-fg);
     font-family: var(--font-sans);

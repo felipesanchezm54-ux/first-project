@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { Logo } from "@/components/ui/logo";
 import { FacebookIcon, InstagramIcon, LinkedInIcon, TikTokIcon, WhatsAppIcon } from "@/components/ui/social-icons";
-import { NewsletterForm } from "@/components/forms/newsletter-form";
+import { LazyNewsletterForm } from "@/components/lazy/lazy-forms";
 import { legalNav, mainNav, site, whatsappUrl } from "@/lib/site";
 import { services } from "@/lib/content/services";
 
@@ -33,7 +33,7 @@ export function Footer() {
               Un correo al mes con lo que funcionó
             </p>
             <p className="mt-1 text-sm text-muted">Casos, cifras y un consejo aplicable. Sin spam.</p>
-            <NewsletterForm source="footer" labelledBy="newsletter-footer" className="mt-4" />
+            <LazyNewsletterForm source="footer" labelledBy="newsletter-footer" className="mt-4" />
           </div>
         </div>
 

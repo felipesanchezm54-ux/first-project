@@ -2,7 +2,7 @@ import { PageHero } from "@/components/sections/page-hero";
 import { Section, SectionHeading } from "@/components/sections/section";
 import { PostCard } from "@/components/blog/post-card";
 import { PostFilter } from "@/components/blog/post-filter";
-import { NewsletterForm } from "@/components/forms/newsletter-form";
+import { LazyNewsletterForm } from "@/components/lazy/lazy-forms";
 import { getAllPosts, toMeta } from "@/lib/blog";
 import { pageMetadata } from "@/lib/seo";
 
@@ -59,7 +59,7 @@ export default function BlogPage() {
               </h2>
               <p className="mt-3 text-muted">Solo cuando publicamos algo nuevo. Te puedes dar de baja con un clic.</p>
             </div>
-            <NewsletterForm source="blog" labelledBy="newsletter-blog" />
+            <LazyNewsletterForm source="blog" labelledBy="newsletter-blog" />
           </div>
         </div>
       </section>
