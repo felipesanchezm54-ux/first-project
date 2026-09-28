@@ -1,5 +1,7 @@
 # NEXO · Sitio web de la agencia de marketing digital
 
+**Sitio en vivo:** https://nexo-agencia-ceipa.netlify.app
+
 Propuesta académica para el taller de SEO y UX de **CEIPA Business School**: sitio web de **NEXO**, agencia de marketing digital de Medellín enfocada en resultados medibles. Incluye el sitio público, un blog, el caso de éxito de **Tienda Óptica**, un **panel de clientes** con datos de demostración y **Vera**, la agente de IA de la agencia.
 
 > Todos los números del panel y del caso de éxito son **datos simulados con fines académicos** y están marcados como ilustrativos en el sitio.

@@ -21,7 +21,7 @@ El repositorio ya está preparado. `netlify.toml` le dice a Netlify cómo compil
 3. En el panel del proyecto, haz clic en el botón **Connect** (arriba a la derecha).
 4. En la ventana que se abre:
    - Busca el interruptor **Connection pooling** y **apágalo**, para usar la conexión directa.
-   - Copia la cadena de conexión completa. Se ve así:
+   - Clic en **Show password** y luego **Copy snippet** para copiar la cadena completa. Borra al final `&channel_binding=require`. Se ve así:
      ```
      postgresql://neondb_owner:AbC123xyz@ep-algo-123456.us-east-2.aws.neon.tech/neondb?sslmode=require
      ```
@@ -44,7 +44,7 @@ nexo-Q8r2ZpL0x7-vT4mK9sW1-hJ6yB3nC5dF
 3. Elige **GitHub**. Si te pide permisos, autoriza a Netlify a ver tus repositorios; puedes darle acceso solo a `first-project`.
 4. Selecciona el repositorio **`felipesanchezm54-ux/first-project`**.
 5. En la pantalla de configuración:
-   - **Branch to deploy:** elige **`claude/practical-johnson-78o4qt`**. Si antes unes la rama a `main` con un pull request, elige `main`.
+   - **Branch to deploy:** elige **`claude/practical-johnson-78o4qt`** (la rama predeterminada del repositorio solo tiene la app de tareas antigua; revisa que no quede esa). Si antes unes la rama a `main` con un pull request, elige `main`.
    - **Build command** y **Publish directory:** no los toques; Netlify los lee de `netlify.toml`.
    - **Project name:** si aparece, escribe algo como `nexo-agencia`. Tu link quedará como `https://nexo-agencia.netlify.app`.
 6. Busca **Add environment variables** (o **Environment variables**) en esa misma pantalla y agrega dos:
@@ -56,7 +56,16 @@ nexo-Q8r2ZpL0x7-vT4mK9sW1-hJ6yB3nC5dF
 
 7. Clic en **Deploy**.
 
-## Parte 4 · Esperar y comprobar
+## Parte 4 · Hacer el sitio público
+
+Algunas cuentas de Netlify crean los proyectos como **privados**: al abrir el link aparece «This site is private». Para cambiarlo:
+
+1. En Netlify, entra a **Project configuration → Access & security → Visibilidad del proyecto** (Project visibility).
+2. Elige **Customize this project's visibility** → **Public**.
+3. En **Applies to**, elige **Production and previews**.
+4. Clic en **Save**. No hace falta volver a desplegar.
+
+## Parte 5 · Esperar y comprobar
 
 1. Netlify empieza a compilar; tarda **3 a 6 minutos**. Puedes ver el avance en **Deploys** → el despliegue en curso → **Deploy log**. Todo va bien si en el log aparecen:
    - `Your database is now in sync with your Prisma schema`
@@ -71,7 +80,7 @@ nexo-Q8r2ZpL0x7-vT4mK9sW1-hJ6yB3nC5dF
 
 > La primera visita después de un rato sin uso puede tardar unos segundos: la base gratuita de Neon «se duerme» y despierta con la primera consulta.
 
-## Parte 5 · Ajustes opcionales
+## Parte 6 · Ajustes opcionales
 
 - **Cambiar el nombre del link:** en Netlify, **Project configuration → General → Change project name**. Después haz un nuevo despliegue (**Deploys → Trigger deploy → Deploy project**) para que el sitemap y los canonical usen el nombre nuevo.
 - **Activar Vera con IA:** agrega la variable `ANTHROPIC_API_KEY` con tu clave de la consola de Anthropic y vuelve a desplegar. Sin ella, Vera funciona con respuestas predefinidas.
