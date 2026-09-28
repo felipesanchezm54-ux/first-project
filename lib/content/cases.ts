@@ -40,7 +40,7 @@ export const tiendaOptica: CaseStudy = {
   metrics: [
     { value: 17.8, prefix: "+", suffix: " %", label: "conversión digital", context: "vs. línea base, mes 5 de 6 (meta: +20 %)" },
     { value: 1126, label: "leads captados", context: "en 5 meses, con consentimiento Habeas Data" },
-    { value: 46, suffix: " %", label: "tasa de apertura de email", context: "promedio de los 5 flujos (referencia del sector retail: ~20–25 %)" },
+    { value: 46, suffix: " %", label: "tasa de apertura de email", context: "promedio de los 5 flujos" },
     { value: 32, prefix: "−", suffix: " %", label: "costo por lead", context: "de $14.200 a $9.600 COP entre el mes 1 y el 5" },
   ],
   author: { name: "Felipe", role: "Content Curator" },

@@ -5,6 +5,7 @@ import { Footer } from "@/components/layout/footer";
 import { CookieBanner } from "@/components/layout/cookie-banner";
 import { ConsentScripts } from "@/components/layout/consent-scripts";
 import { FloatingActions } from "@/components/layout/floating-actions";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/jsonld";
 import { site } from "@/lib/site";
@@ -32,6 +33,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="es-CO" className={`${spaceGrotesk.variable} ${inter.variable}`}>
       <body>
+        <MotionProvider>
         <a
           href="#contenido"
           className="fixed left-4 top-3 z-[100] -translate-y-24 rounded-full bg-cta px-5 py-3 font-display font-semibold text-cta-fg transition-transform focus:translate-y-0"
@@ -48,6 +50,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <ConsentScripts />
         <JsonLd data={organizationJsonLd()} />
         <JsonLd data={websiteJsonLd()} />
+        </MotionProvider>
       </body>
     </html>
   );
