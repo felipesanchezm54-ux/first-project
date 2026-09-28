@@ -1,0 +1,11 @@
+# Configuración de despliegue en Netlify.
+# Netlify detecta Next.js y usa su adaptador oficial automáticamente.
+[build]
+  # 1) Prepara el cliente de Prisma para PostgreSQL, 2) crea/actualiza las tablas,
+  # 3) carga los datos de Tienda Óptica solo si la base está vacía y 4) compila el sitio.
+  command = "npm run build:netlify"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+  NEXT_TELEMETRY_DISABLED = "1"

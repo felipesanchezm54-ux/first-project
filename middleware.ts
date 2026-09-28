@@ -18,4 +18,4 @@ export async function middleware(req: NextRequest) {
   return NextResponse.redirect(url);
 }
 
-export const config = { runtime: "nodejs", matcher: ["/panel/:path*", "/api/dashboard/:path*"] };
+export const config = { matcher: ["/panel/:path*", "/api/dashboard/:path*"] };

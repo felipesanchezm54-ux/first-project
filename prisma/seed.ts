@@ -129,6 +129,11 @@ function generateMetrics(): Row[] {
 }
 
 async function main() {
+  // En Netlify el seed corre en cada despliegue con SEED_IF_EMPTY=1: si ya hay datos, no toca nada.
+  if (process.env.SEED_IF_EMPTY === "1" && (await db.client.count()) > 0) {
+    console.log("✓ La base ya tiene datos: se omite el seed.");
+    return;
+  }
   console.log("→ Limpiando datos anteriores…");
   await db.metric.deleteMany();
   await db.campaign.deleteMany();

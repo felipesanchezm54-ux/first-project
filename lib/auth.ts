@@ -1,4 +1,6 @@
-import { SignJWT, jwtVerify } from "jose";
+// Solo los módulos de firma y verificación (evita cargar el código de cifrado JWE, no compatible con Edge).
+import { SignJWT } from "jose/jwt/sign";
+import { jwtVerify } from "jose/jwt/verify";
 
 /** Sesión del panel: JWT firmado (HS256) en una cookie httpOnly. Funciona en Node y en el middleware (Edge). */
 export const SESSION_COOKIE = "nexo_session";

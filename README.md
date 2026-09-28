@@ -46,7 +46,7 @@ Si ya tienes Chrome/Chromium instalado, puedes indicarlo con `CHROMIUM_PATH` (pr
 | `ANTHROPIC_API_KEY` | Respuestas de Vera con Claude. | No |
 | `NEXT_PUBLIC_GA4_ID`, `NEXT_PUBLIC_META_PIXEL_ID` | Analítica, solo si el visitante acepta cookies. | No |
 
-**Pasar a PostgreSQL:** en `prisma/schema.prisma` cambia `provider = "sqlite"` por `provider = "postgresql"`, pon la URL en `DATABASE_URL` y corre `npx prisma migrate dev`.
+**Publicar en internet (Netlify + PostgreSQL):** sigue la guía paso a paso en [`docs/publicar-en-netlify.md`](docs/publicar-en-netlify.md). El repositorio ya trae `netlify.toml` y `prisma/schema.postgres.prisma`; en local se sigue usando SQLite.
 
 ---
 
@@ -181,4 +181,5 @@ La demo funciona igual en los dos casos.
 - `docs/Tabla de parámetros SEO y UX - diligenciada.xlsx`: el Excel de la profesora con la columna llena.
 - [`docs/omnicanalidad.md`](docs/omnicanalidad.md): cómo se integran web, redes, WhatsApp, email, tienda física y panel.
 - [`docs/bitacora-ia.md`](docs/bitacora-ia.md): herramientas de IA, prompts, ajustes.
+- [`docs/publicar-en-netlify.md`](docs/publicar-en-netlify.md): cómo publicar el sitio en Netlify, paso a paso.
 - `docs/capturas/` y `docs/lighthouse/`: evidencias.

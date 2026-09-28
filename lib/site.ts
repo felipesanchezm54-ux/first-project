@@ -7,7 +7,8 @@ export const site = {
   name: "NEXO",
   legalName: "NEXO Agencia de Marketing Digital",
   tagline: "Agencia de marketing digital",
-  url: (process.env.NEXT_PUBLIC_SITE_URL ?? "https://nexo.example").replace(/\/$/, ""),
+  // En Netlify, si no se define NEXT_PUBLIC_SITE_URL, se usa la URL del sitio que Netlify entrega al compilar (URL).
+  url: (process.env.NEXT_PUBLIC_SITE_URL || process.env.URL || "https://nexo.example").replace(/\/$/, ""),
   description:
     "Agencia de marketing digital en Medellín enfocada en resultados medibles: estrategia, contenido, pauta y un panel donde ves qué se hizo, cuánto costó y qué produjo.",
   locale: "es_CO",

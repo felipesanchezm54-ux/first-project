@@ -13,7 +13,8 @@
     "db:reset": "prisma migrate reset --force",
     "test:e2e": "playwright test",
     "capturas": "CAPTURAS=1 playwright test tests/capturas.spec.ts --project=escritorio",
-    "lighthouse": "node scripts/lighthouse.mjs"
+    "lighthouse": "node scripts/lighthouse.mjs",
+    "build:netlify": "prisma generate --schema=prisma/schema.postgres.prisma && prisma db push --schema=prisma/schema.postgres.prisma --skip-generate && SEED_IF_EMPTY=1 tsx prisma/seed.ts && next build"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
