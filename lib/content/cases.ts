@@ -35,13 +35,13 @@ export const tiendaOptica: CaseStudy = {
   strategy:
     "Posicionamiento como el experto que educa (arquetipo El Sabio), embudo Atracción → Interacción → Conversión → Fidelización, captura de datos con consentimiento, 5 flujos de email y lead scoring en 5 bandas.",
   result:
-    "Meta de +20 % de conversión digital en 6 meses. En la simulación del panel, el mes 5 cierra en +17,8 % con 1.126 leads captados y el costo por lead bajando de $14.200 a $9.600.",
+    "Meta de +20 % de conversión digital en 6 meses. En la simulación del panel, el mes 5 cierra en +17,9 % con 1.130 leads captados y el costo por lead bajando de $14.200 a $9.500.",
   services: ["estrategia-de-marketing", "marketing-digital", "redes-sociales", "creacion-de-contenido", "publicidad-digital", "analisis-y-medicion"],
   metrics: [
-    { value: 17.8, prefix: "+", suffix: " %", label: "conversión digital", context: "vs. línea base, mes 5 de 6 (meta: +20 %)" },
-    { value: 1126, label: "leads captados", context: "en 5 meses, con consentimiento Habeas Data" },
+    { value: 17.9, prefix: "+", suffix: " %", label: "conversión digital", context: "vs. línea base, mes 5 de 6 (meta: +20 %)" },
+    { value: 1130, label: "leads captados", context: "en 5 meses, con consentimiento Habeas Data" },
     { value: 46, suffix: " %", label: "tasa de apertura de email", context: "promedio de los 5 flujos" },
-    { value: 32, prefix: "−", suffix: " %", label: "costo por lead", context: "de $14.200 a $9.600 COP entre el mes 1 y el 5" },
+    { value: 33, prefix: "−", suffix: " %", label: "costo por lead", context: "de $14.200 a $9.500 COP entre el mes 1 y el 5" },
   ],
   author: { name: "Felipe", role: "Content Curator" },
   publishedAt: "2026-06-12",

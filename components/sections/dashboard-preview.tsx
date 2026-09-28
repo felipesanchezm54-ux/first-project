@@ -2,7 +2,7 @@ import { chartColors } from "@/lib/chart-palette";
 import { CountUp } from "@/components/motion/count-up";
 
 // Vista previa del panel en el inicio. Datos de demostración (mismos del seed).
-const weeks = [118, 131, 127, 149, 162, 158, 181, 196, 204, 221, 238, 252];
+const weeks = [51, 54, 56, 56, 60, 57, 65, 66, 65, 66, 73, 73];
 const max = Math.max(...weeks);
 
 export function DashboardPreview() {
@@ -18,9 +18,9 @@ export function DashboardPreview() {
 
       <dl className="mt-6 grid grid-cols-3 gap-3">
         {[
-          { label: "Leads del mes", value: 238 },
-          { label: "Apertura email", value: 46, suffix: " %" },
-          { label: "Clics a WhatsApp", value: 612 },
+          { label: "Leads del mes", value: 277 },
+          { label: "Apertura email", value: 48, suffix: " %" },
+          { label: "Clics a WhatsApp", value: 807 },
         ].map((k) => (
           <div key={k.label} className="rounded-2xl bg-surface-2 p-3 md:p-4">
             <dt className="text-xs text-muted md:text-sm">{k.label}</dt>
@@ -46,22 +46,22 @@ export function DashboardPreview() {
         </div>
         <p className="mt-2 flex justify-between text-xs text-muted">
           <span>Sem. 1</span>
-          <span>Sem. 12 · 252 leads</span>
+          <span>Sem. 12 · 73 leads</span>
         </p>
       </div>
 
       <div className="mt-6">
         <div className="flex items-baseline justify-between text-sm">
           <span className="font-semibold">Avance hacia la meta de +20 % en conversión</span>
-          <span className="font-semibold">89 %</span>
+          <span className="font-semibold">90 %</span>
         </div>
-        <div className="mt-2 h-3 overflow-hidden rounded-full" style={{ background: "#d7ece4" }} role="img" aria-label="Avance de 89 % hacia la meta: +17,8 % de +20 %">
-          <div className="h-full rounded-full" style={{ width: "89%", background: chartColors.single }} />
+        <div className="mt-2 h-3 overflow-hidden rounded-full" style={{ background: "#d7ece4" }} role="img" aria-label="Avance de 90 % hacia la meta: +17,9 % de +20 %">
+          <div className="h-full rounded-full" style={{ width: "90%", background: chartColors.single }} />
         </div>
-        <p className="mt-2 text-xs text-muted">+17,8 % de +20 % · mes 5 de 6</p>
+        <p className="mt-2 text-xs text-muted">+17,9 % de +20 % · mes 5 de 6</p>
       </div>
       <figcaption className="sr-only">
-        Vista previa del panel: 238 leads en el mes, 46 % de apertura de email, 612 clics a WhatsApp y 89 % de avance hacia la meta. Datos de
+        Vista previa del panel: 277 leads en el mes, 48 % de apertura de email, 807 clics a WhatsApp y 90 % de avance hacia la meta. Datos de
         demostración.
       </figcaption>
     </figure>

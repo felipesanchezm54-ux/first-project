@@ -1,0 +1,123 @@
+// Base de datos de NEXO.
+// Para migrar a PostgreSQL basta con cambiar `provider = "sqlite"` por
+// `provider = "postgresql"` y apuntar DATABASE_URL a la nueva base.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+/// Solicitudes que llegan desde los formularios del sitio.
+model Lead {
+  id                       String   @id @default(cuid())
+  nombre                   String
+  empresa                  String?
+  correo                   String
+  telefono                 String?
+  servicio                 String
+  plan                     String?
+  mensaje                  String
+  origen                   String   @default("contacto")
+  consentimientoHabeasData Boolean
+  aceptaComercial          Boolean  @default(false)
+  correoEnviado            Boolean  @default(false)
+  fecha                    DateTime @default(now())
+
+  @@index([fecha])
+}
+
+/// Suscriptores del boletín.
+model Subscriber {
+  id             String   @id @default(cuid())
+  correo         String   @unique
+  consentimiento Boolean
+  origen         String   @default("footer")
+  fecha          DateTime @default(now())
+}
+
+/// Marcas cliente de NEXO.
+model Client {
+  id        String     @id @default(cuid())
+  slug      String     @unique
+  nombre    String
+  sector    String
+  logo      String?
+  /// Conversiones digitales semanales promedio antes de NEXO (línea base de la meta).
+  lineaBaseConversionesSemana Float
+  /// Meta de aumento de conversión (0.2 = +20 %).
+  metaAumento Float
+  inicioProyecto DateTime
+  users     User[]
+  metrics   Metric[]
+  campaigns Campaign[]
+}
+
+/// Usuarios con acceso al panel de un cliente.
+model User {
+  id           String   @id @default(cuid())
+  correo       String   @unique
+  passwordHash String
+  nombre       String
+  clientId     String
+  client       Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  createdAt    DateTime @default(now())
+}
+
+/// Métrica diaria por canal (ej. canal "instagram", nombre "leads", valor 4).
+model Metric {
+  id       String   @id @default(cuid())
+  clientId String
+  client   Client   @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  canal    String
+  nombre   String
+  valor    Float
+  meta     Float?
+  fecha    DateTime
+
+  @@index([clientId, fecha])
+  @@index([clientId, canal, nombre])
+}
+
+/// Campañas del cliente (email, pauta, contenido).
+model Campaign {
+  id         String    @id @default(cuid())
+  clientId   String
+  client     Client    @relation(fields: [clientId], references: [id], onDelete: Cascade)
+  nombre     String
+  canal      String
+  estado     String
+  inversion  Int
+  /// JSON con los resultados de la campaña (enviados, aperturas, conversiones…).
+  resultados String
+  inicio     DateTime
+  fin        DateTime?
+}
+
+/// Artículos del blog (la fuente son los archivos MDX de content/blog; el seed los copia aquí).
+model Post {
+  id                 String   @id @default(cuid())
+  slug               String   @unique
+  titulo             String
+  resumen            String
+  contenido          String
+  categoria          String
+  autor              String
+  fecha              DateTime
+  fechaActualizacion DateTime
+}
+
+/// Casos de éxito del portafolio.
+model CaseStudy {
+  id                 String @id @default(cuid())
+  slug               String @unique
+  marca              String
+  problema           String
+  estrategia         String
+  resultado          String
+  /// JSON con las métricas destacadas.
+  metricasDestacadas String
+}

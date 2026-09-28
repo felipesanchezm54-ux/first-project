@@ -68,11 +68,11 @@ const flows = [
 
 // Avance mensual de la conversión digital vs. línea base (simulación del panel).
 const monthly = [
-  { m: "Mes 1", v: 3.1 },
-  { m: "Mes 2", v: 7.4 },
-  { m: "Mes 3", v: 11.2 },
-  { m: "Mes 4", v: 14.9 },
-  { m: "Mes 5", v: 17.8 },
+  { m: "Mes 1", v: 4.7 },
+  { m: "Mes 2", v: 7.8 },
+  { m: "Mes 3", v: 11.0 },
+  { m: "Mes 4", v: 14.4 },
+  { m: "Mes 5", v: 17.9 },
 ];
 const GOAL = 20;
 
@@ -385,7 +385,7 @@ export default function TiendaOpticaCase() {
               <p className="font-display text-lg font-semibold">Conversión digital vs. línea base, por mes</p>
               <p className="text-sm text-muted">Meta: +20 % al mes 6</p>
             </figcaption>
-            <div className="relative mt-8 h-56" role="img" aria-label="Barras mensuales de aumento de conversión: mes 1 +3,1 %, mes 2 +7,4 %, mes 3 +11,2 %, mes 4 +14,9 %, mes 5 +17,8 %. Meta +20 %.">
+            <div className="relative mt-8 h-56" role="img" aria-label="Barras mensuales de aumento de conversión: mes 1 +4,7 %, mes 2 +7,8 %, mes 3 +11 %, mes 4 +14,4 %, mes 5 +17,9 %. Meta +20 %.">
               <div className="absolute inset-x-0 border-t-2 border-dashed" style={{ bottom: `${(GOAL / 22) * 100}%`, borderColor: chartColors.goal }}>
                 <span className="absolute -top-6 right-0 text-xs font-semibold text-fg">Meta +20 %</span>
               </div>

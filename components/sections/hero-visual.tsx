@@ -55,11 +55,11 @@ export function HeroVisual() {
 
       <div className="anim-float-slow absolute left-0 top-[4%] rounded-2xl border border-border bg-[var(--night-2)]/90 px-4 py-3 shadow-lift backdrop-blur md:-left-4">
         <p className="text-xs text-muted">Conversión digital</p>
-        <p className="font-display text-2xl font-bold text-accent">+17,8 %</p>
+        <p className="font-display text-2xl font-bold text-accent">+17,9 %</p>
       </div>
       <div className="anim-float absolute bottom-[12%] right-0 rounded-2xl border border-border bg-[var(--night-2)]/90 px-4 py-3 shadow-lift backdrop-blur md:-right-4">
         <p className="text-xs text-muted">Costo por lead</p>
-        <p className="font-display text-2xl font-bold text-accent-2">−32 %</p>
+        <p className="font-display text-2xl font-bold text-accent-2">−33 %</p>
       </div>
     </div>
   );

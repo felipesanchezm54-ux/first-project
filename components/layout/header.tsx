@@ -29,11 +29,14 @@ export function Header() {
 
   useEffect(() => setOpen(false), [pathname]);
 
+  // En el panel el contenido arranca en fondo claro: el header va sólido desde el inicio.
+  const solid = scrolled || pathname.startsWith("/panel");
+
   return (
     <header
       className={cn(
         "fixed inset-x-0 top-0 z-50 transition-[background-color,border-color,backdrop-filter] duration-300",
-        scrolled ? "border-b border-border bg-night/85 backdrop-blur-md" : "border-b border-transparent bg-transparent",
+        solid ? "border-b border-border bg-night/90 backdrop-blur-md" : "border-b border-transparent bg-transparent",
       )}
     >
       <div className="container-nexo flex h-[var(--header-h)] items-center justify-between gap-4">

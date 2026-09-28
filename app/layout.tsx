@@ -6,6 +6,7 @@ import { CookieBanner } from "@/components/layout/cookie-banner";
 import { ConsentScripts } from "@/components/layout/consent-scripts";
 import { FloatingActions } from "@/components/layout/floating-actions";
 import { MotionProvider } from "@/components/motion/motion-provider";
+import { VeraWidget } from "@/components/vera/vera-widget";
 import { JsonLd } from "@/components/seo/json-ld";
 import { organizationJsonLd, websiteJsonLd } from "@/lib/jsonld";
 import { site } from "@/lib/site";
@@ -45,7 +46,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {children}
         </main>
         <Footer />
-        <FloatingActions />
+        <FloatingActions>
+          <VeraWidget />
+        </FloatingActions>
         <CookieBanner />
         <ConsentScripts />
         <JsonLd data={organizationJsonLd()} />
