@@ -22,7 +22,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="font" type="font/woff2" crossorigin href="https://fonts.gstatic.com/s/bigshouldersdisplay/v24/fC1MPZJEZG-e9gHhdI4-NBbfd2ys3SjJCx12wPgf9g-_3F0YdQ88FFkwSDH72ZU.woff2">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@400;500;700&display=optional">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=JetBrains+Mono:wght@400;500;700&display=swap">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;600;700&display=swap">
   <link rel="stylesheet" href="/css/landing.css">
   <script>
@@ -81,7 +81,7 @@
         </div>
 
         <div class="eye-stage" id="eye-stage" aria-hidden="true">
-          <div class="orbit orbit--a"><i style="left:50%;top:-7px;width:14px;height:14px;background:var(--cyan)"></i><i style="left:12%;bottom:10%;width:10px;height:10px;background:var(--amb)"></i></div>
+          <div class="orbit orbit--a"><i style="left:50%;top:-7px;width:14px;height:14px;background:var(--cyan)"></i><i style="left:12%;bottom:10%;width:10px;height:10px;background:var(--blue)"></i></div>
           <div class="orbit orbit--b"><i style="right:-6px;top:50%;width:12px;height:12px;background:var(--mag)"></i></div>
           <div class="eyeball" id="eyeball">
             <div class="eyeball__sclera"></div>
@@ -264,8 +264,8 @@
           <div class="compare__layer" aria-hidden="true">
             <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
               <defs>
-                <radialGradient id="hRed"><stop offset="0" stop-color="#FF3D3D" stop-opacity=".95"/><stop offset=".45" stop-color="#FFB21E" stop-opacity=".7"/><stop offset=".75" stop-color="#2EE6A6" stop-opacity=".35"/><stop offset="1" stop-color="#4C7DFF" stop-opacity="0"/></radialGradient>
-                <radialGradient id="hMid"><stop offset="0" stop-color="#FFB21E" stop-opacity=".85"/><stop offset=".6" stop-color="#2EE6A6" stop-opacity=".35"/><stop offset="1" stop-color="#4C7DFF" stop-opacity="0"/></radialGradient>
+                <radialGradient id="hRed"><stop offset="0" stop-color="#FF3D3D" stop-opacity=".95"/><stop offset=".45" stop-color="#FFE14D" stop-opacity=".7"/><stop offset=".75" stop-color="#2EE6A6" stop-opacity=".35"/><stop offset="1" stop-color="#4C7DFF" stop-opacity="0"/></radialGradient>
+                <radialGradient id="hMid"><stop offset="0" stop-color="#FFE14D" stop-opacity=".85"/><stop offset=".6" stop-color="#2EE6A6" stop-opacity=".35"/><stop offset="1" stop-color="#4C7DFF" stop-opacity="0"/></radialGradient>
                 <radialGradient id="hLow"><stop offset="0" stop-color="#2EE6A6" stop-opacity=".6"/><stop offset="1" stop-color="#4C7DFF" stop-opacity="0"/></radialGradient>
               </defs>
               <rect width="800" height="400" fill="#0A0F1C"/>
@@ -282,7 +282,7 @@
               <path d="M295 140 L250 205 L580 272" stroke="#EEF2FA" stroke-width="1.5" stroke-dasharray="4 6" fill="none"/>
               <g font-family="JetBrains Mono, monospace" font-weight="700" font-size="15" text-anchor="middle">
                 <circle cx="295" cy="140" r="17" fill="#FF3D8B"/><text x="295" y="145" fill="#06080F">1</text>
-                <circle cx="250" cy="205" r="15" fill="#FFB21E"/><text x="250" y="210" fill="#06080F">2</text>
+                <circle cx="250" cy="205" r="15" fill="#4C7DFF"/><text x="250" y="210" fill="#06080F">2</text>
                 <circle cx="580" cy="272" r="13" fill="#22D3EE"/><text x="580" y="277" fill="#06080F">3</text>
               </g>
             </svg>
@@ -419,11 +419,11 @@
                 </g>
                 <rect x="40" y="230" width="60" height="18" rx="3" fill="#1E2740"/><rect x="120" y="230" width="60" height="18" rx="3" fill="#1E2740"/><rect x="280" y="230" width="60" height="18" rx="3" fill="#1E2740"/>
                 <g class="fx">
-                  <circle cx="152" cy="150" r="40" fill="#FF3D3D" opacity=".45"/><circle cx="310" cy="152" r="30" fill="#FFB21E" opacity=".45"/><circle cx="150" cy="238" r="20" fill="#2EE6A6" opacity=".45"/>
+                  <circle cx="152" cy="150" r="40" fill="#FF3D3D" opacity=".45"/><circle cx="310" cy="152" r="30" fill="#FFE14D" opacity=".45"/><circle cx="150" cy="238" r="20" fill="#2EE6A6" opacity=".45"/>
                   <path d="M152 150 L310 152 L150 238" stroke="#EEF2FA" stroke-dasharray="3 5" fill="none"/>
                   <g font-family="JetBrains Mono, monospace" font-weight="700" font-size="12" text-anchor="middle">
                     <circle cx="152" cy="150" r="11" fill="#FF3D8B"/><text x="152" y="154" fill="#06080F">1</text>
-                    <circle cx="310" cy="152" r="11" fill="#FFB21E"/><text x="310" y="156" fill="#06080F">2</text>
+                    <circle cx="310" cy="152" r="11" fill="#4C7DFF"/><text x="310" y="156" fill="#06080F">2</text>
                     <circle cx="150" cy="238" r="11" fill="#22D3EE"/><text x="150" y="242" fill="#06080F">3</text>
                   </g>
                 </g>
@@ -451,11 +451,11 @@
                 <g fill="#2A3550"><circle cx="100" cy="122" r="14"/><path d="M80 140 h40 l8 90 h-56z"/><circle cx="200" cy="118" r="14"/><path d="M178 136 h44 l6 96 h-56z"/></g>
                 <rect x="244" y="110" width="70" height="40" rx="4" fill="#FF3D8B" opacity=".75"/><text x="279" y="135" text-anchor="middle" font-family="JetBrains Mono, monospace" font-weight="700" font-size="12" fill="#06080F">-30%</text>
                 <g class="fx">
-                  <circle cx="200" cy="160" r="44" fill="#FF3D3D" opacity=".45"/><circle cx="100" cy="170" r="30" fill="#FFB21E" opacity=".45"/><circle cx="279" cy="130" r="18" fill="#2EE6A6" opacity=".45"/>
+                  <circle cx="200" cy="160" r="44" fill="#FF3D3D" opacity=".45"/><circle cx="100" cy="170" r="30" fill="#FFE14D" opacity=".45"/><circle cx="279" cy="130" r="18" fill="#2EE6A6" opacity=".45"/>
                   <path d="M200 160 L100 170 L279 130" stroke="#EEF2FA" stroke-dasharray="3 5" fill="none"/>
                   <g font-family="JetBrains Mono, monospace" font-weight="700" font-size="12" text-anchor="middle">
                     <circle cx="200" cy="160" r="11" fill="#FF3D8B"/><text x="200" y="164" fill="#06080F">1</text>
-                    <circle cx="100" cy="170" r="11" fill="#FFB21E"/><text x="100" y="174" fill="#06080F">2</text>
+                    <circle cx="100" cy="170" r="11" fill="#4C7DFF"/><text x="100" y="174" fill="#06080F">2</text>
                     <circle cx="279" cy="130" r="11" fill="#22D3EE"/><text x="279" y="134" fill="#06080F">3</text>
                   </g>
                 </g>

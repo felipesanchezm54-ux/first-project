@@ -145,7 +145,7 @@ function setupHero() {
     return 'Fondo';
   }
   const hx = $('#hud-x'), hy = $('#hud-y'), hn = $('#hud-n'), hz = $('#hud-z');
-  const HEAT = [[76, 125, 255], [46, 230, 166], [255, 178, 30], [255, 61, 61]];
+  const HEAT = [[76, 125, 255], [46, 230, 166], [255, 225, 77], [255, 61, 61]];
   function draw() {
     raf = null;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -191,7 +191,7 @@ function setupHero() {
 function setupDemo() {
   const stage = $('#stage'), bag = $('#bag'), gloss = $('#bag-gloss'), heatBox = $('#bag-heat'), marksBox = $('#bag-marks');
   const LABELS = { marca: 'Marca', ilustracion: 'Ilustración de montañas', origen: 'Texto de origen', tueste: 'Sello de tueste', precio: 'Precio' };
-  const DOT = ['#FF3D8B', '#FFB21E', '#22D3EE'], HEATC = ['#FF3D3D', '#FFB21E', '#2EE6A6'], SIZE = [62, 48, 38];
+  const DOT = ['#FF3D8B', '#4C7DFF', '#22D3EE'], HEATC = ['#FF3D3D', '#FFE14D', '#2EE6A6'], SIZE = [62, 48, 38];
   let taps = [];
   let t0 = 0;
   const tilt = (rx, ry) => { bag.style.transform = `rotateX(${rx.toFixed(1)}deg) rotateY(${ry.toFixed(1)}deg)`; gloss.style.setProperty('--gloss', (100 + ry * 3).toFixed(0) + 'deg'); };
