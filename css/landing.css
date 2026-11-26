@@ -348,3 +348,5 @@ footer { padding-bottom: 96px; }
 @media (max-width: 560px) {
   footer { padding-bottom: 160px; }
 }
+/* Mientras el aviso de consentimiento está abierto, el botón flotante no compite con él */
+body:has(#consent:not([hidden])) .fab { display: none !important; }
