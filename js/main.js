@@ -30,6 +30,7 @@ if (vista) {
   setupPlans();
   setupCases();
   setupLens();
+  setupBusy();
   setupForm();
   setupCopy();
   setupKeyEvents();
@@ -190,19 +191,29 @@ function setupHero() {
 // ---------- 2 · Demo: empaque 3D ----------
 function setupDemo() {
   const stage = $('#stage'), bag = $('#bag'), gloss = $('#bag-gloss'), heatBox = $('#bag-heat'), marksBox = $('#bag-marks');
-  const LABELS = { marca: 'Marca', ilustracion: 'Ilustración de montañas', origen: 'Texto de origen', tueste: 'Sello de tueste', precio: 'Precio' };
+  const LABELS = { marca: 'Marca', ilustracion: 'Ilustración de montañas', origen: 'Texto de origen', tueste: 'Sello de tueste', precio: 'Precio', otra: 'Otra zona del empaque' };
   const DOT = ['#FF3D8B', '#4C7DFF', '#22D3EE'], HEATC = ['#FF3D3D', '#FFE14D', '#2EE6A6'], SIZE = [62, 48, 38];
+  const hots = $$('.hot', bag);
   let taps = [];
   let t0 = 0;
   const tilt = (rx, ry) => { bag.style.transform = `rotateX(${rx.toFixed(1)}deg) rotateY(${ry.toFixed(1)}deg)`; gloss.style.setProperty('--gloss', (100 + ry * 3).toFixed(0) + 'deg'); };
   stage.addEventListener('pointermove', e => {
-    if (reduce || e.pointerType === 'touch') return;
+    if (reduce || e.pointerType !== 'mouse' || taps.length) return; // no se inclina mientras marcas
     const r = stage.getBoundingClientRect();
-    tilt(-((e.clientY - r.top) / r.height - 0.5) * 22, ((e.clientX - r.left) / r.width - 0.5) * 36);
+    tilt(-((e.clientY - r.top) / r.height - 0.5) * 14, ((e.clientX - r.left) / r.width - 0.5) * 24);
   });
   stage.addEventListener('pointerleave', () => tilt(0, 0));
   // Tiempo hasta el primer toque: desde que el empaque entra en pantalla
   new IntersectionObserver(es => { if (es[0].isIntersecting && !t0) { t0 = performance.now(); T.event('demo_inicio', null, true); } }, { threshold: 0.5 }).observe(stage);
+
+  // Zona del empaque según la posición (en % del empaque)
+  function zoneAt(x, y) {
+    const h = hots.find(b => {
+      const l = parseFloat(b.style.left), t = parseFloat(b.style.top), w = parseFloat(b.style.width), hh = parseFloat(b.style.height);
+      return x >= l && x <= l + w && y >= t && y <= t + hh;
+    });
+    return h ? h.dataset.zone : 'otra';
+  }
 
   function render() {
     $('#tap-count').textContent = taps.length;
@@ -214,13 +225,11 @@ function setupDemo() {
     });
     marksBox.innerHTML = ''; heatBox.innerHTML = '';
     taps.forEach((t, i) => {
-      const b = bag.querySelector(`[data-zone="${t.zone}"]`);
-      const cx = parseFloat(b.style.left) + parseFloat(b.style.width) / 2, cy = parseFloat(b.style.top) + parseFloat(b.style.height) / 2;
       const m = document.createElement('span'); m.className = 'mark'; m.textContent = i + 1;
-      m.style.left = cx + '%'; m.style.top = cy + '%'; m.style.background = DOT[i]; marksBox.appendChild(m);
+      m.style.left = t.x + '%'; m.style.top = t.y + '%'; m.style.background = DOT[i]; marksBox.appendChild(m);
       if (taps.length >= 3) {
         const h = document.createElement('i');
-        h.style.left = cx + '%'; h.style.top = cy + '%'; h.style.width = h.style.height = SIZE[i] + '%';
+        h.style.left = t.x + '%'; h.style.top = t.y + '%'; h.style.width = h.style.height = SIZE[i] + '%';
         h.style.background = `radial-gradient(circle,${HEATC[i]} 0%,${HEATC[i]} 35%,transparent 70%)`;
         heatBox.appendChild(h);
       }
@@ -233,13 +242,27 @@ function setupDemo() {
       T.event('demo_completada', { orden: taps.map(t => t.zone) }, true);
     }
   }
-  $$('.hot', bag).forEach(b => b.addEventListener('click', () => {
-    const zone = b.dataset.zone;
-    if (taps.length >= 3 || taps.some(t => t.zone === zone)) return;
+
+  function addTap(x, y) {
+    if (taps.length >= 3) return;
     if (!t0) t0 = performance.now();
-    taps.push({ zone, ms: Math.round(performance.now() - t0) });
+    tilt(0, 0);
+    taps.push({ x, y, zone: zoneAt(x, y), ms: Math.round(performance.now() - t0) });
     render();
-  }));
+  }
+
+  // Toque o clic en cualquier punto del empaque: el punto queda donde tocaste
+  bag.addEventListener('click', e => {
+    const hot = e.target.closest('.hot');
+    if (e.detail === 0 && hot) { // teclado: centro de la zona enfocada
+      addTap(parseFloat(hot.style.left) + parseFloat(hot.style.width) / 2, parseFloat(hot.style.top) + parseFloat(hot.style.height) / 2);
+      return;
+    }
+    const r = bag.getBoundingClientRect();
+    const x = ((e.clientX - r.left) / r.width) * 100, y = ((e.clientY - r.top) / r.height) * 100;
+    if (x < 0 || x > 100 || y < 0 || y > 100) return;
+    addTap(x, y);
+  });
   $('#demo-reset').addEventListener('click', () => { taps = []; t0 = performance.now(); render(); });
 }
 
@@ -315,12 +338,28 @@ function setupCases() {
 
 // ---------- 7 · Ética: lente ----------
 function setupLens() {
-  $$('[data-lens]').forEach(b => b.addEventListener('click', () => {
+  const btns = $$('[data-lens]'), views = $$('[data-view]');
+  btns.forEach(b => b.addEventListener('click', () => {
     const v = b.dataset.lens;
-    $$('[data-lens]').forEach(x => x.setAttribute('aria-pressed', String(x === b)));
-    $$('[data-view]').forEach(x => { x.hidden = x.dataset.view !== v; });
+    btns.forEach(x => x.setAttribute('aria-pressed', String(x === b)));
+    views.forEach(x => {
+      const on = x.dataset.view === v;
+      x.classList.toggle('is-active', on);
+      x.setAttribute('aria-hidden', String(!on));
+    });
     T.event('etica_lente', { vista: v });
   }));
+}
+
+// ---------- Botones flotantes: se apartan del empaque y del formulario de opinión ----------
+function setupBusy() {
+  const zones = ['#stage', '#op-form'].map(s => $(s)).filter(Boolean);
+  const on = new Set();
+  const io = new IntersectionObserver(es => {
+    es.forEach(e => { if (e.isIntersecting) on.add(e.target); else on.delete(e.target); });
+    document.body.classList.toggle('is-busy', on.size > 0);
+  }, { threshold: 0.35 });
+  zones.forEach(z => io.observe(z));
 }
 
 // ---------- 9 · Formulario por pasos ----------

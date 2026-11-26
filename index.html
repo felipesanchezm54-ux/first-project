@@ -64,7 +64,10 @@
         <nav class="nav" aria-label="Principal">
           <a href="#demo">Demo</a><a href="#proceso">Cómo funciona</a><a href="#precios">Precios</a><a href="#etica">Ética</a>
         </nav>
-        <span class="tag"><span class="dot" aria-hidden="true"></span>Proyecto en validación · CEIPA</span>
+        <div class="topbar__right">
+          <span class="tag"><span class="dot" aria-hidden="true"></span>Proyecto en validación · CEIPA</span>
+          <a class="btn btn--primary btn--nav" href="#contacto" data-cta="menu">Pide un diagnóstico</a>
+        </div>
       </div>
 
       <div class="wrap hero__body">
@@ -107,7 +110,7 @@
         <div class="reveal">
           <p class="label">Demo de 10 segundos</p>
           <h2 class="h2" id="demo-t">¿Qué viste primero?</h2>
-          <p class="lead">Gira el empaque con el cursor. Toca lo primero que viste, luego lo segundo y lo tercero.</p>
+          <p class="lead">Mira el empaque unos segundos. Luego toca en él lo primero que viste, después lo segundo y lo tercero: cada toque deja un punto numerado.</p>
           <div class="slots" id="slots">
             <div class="slot"><small>PRIMERO</small><span>—</span></div>
             <div class="slot"><small>SEGUNDO</small><span>—</span></div>
@@ -488,7 +491,7 @@
               <button type="button" aria-pressed="false" data-lens="data">Lo que enviamos</button>
             </div>
             <div class="lens__view">
-              <div data-view="cam">
+              <div data-view="cam" class="is-active">
                 <svg viewBox="0 0 480 300" width="100%" height="100%" aria-hidden="true">
                   <rect width="480" height="300" fill="#0A0F1C"/>
                   <ellipse cx="240" cy="150" rx="78" ry="100" fill="none" stroke="#2A3550" stroke-width="1.5"/>
@@ -500,7 +503,7 @@
                   <text x="240" y="282" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" fill="#9AA6BF">Se procesa en tu navegador · no se graba</text>
                 </svg>
               </div>
-              <div data-view="data" hidden><pre>{
+              <div data-view="data" aria-hidden="true"><pre>{
   "aoi": "aoi-demo",
   "x": 0.62,
   "y": 0.41,
