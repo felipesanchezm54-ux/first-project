@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Gracias · PRCPTA</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@800&family=Instrument+Sans:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+  <link rel="stylesheet" href="/css/site.css">
+</head>
+<body>
+  <main class="wrap" style="min-height:80vh;display:grid;align-content:center;padding-top:60px;padding-bottom:60px">
+    <svg viewBox="0 0 120 120" width="96" height="96" fill="none" aria-hidden="true" style="margin-bottom:28px">
+      <circle cx="60" cy="60" r="56" stroke="#22304A" stroke-width="1.5"/>
+      <circle cx="60" cy="60" r="34" stroke="#2FB6A3" stroke-width="1.5" stroke-dasharray="3 5"/>
+      <path d="M44 61l11 11 22-24" stroke="#FFB23E" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <p class="label">Solicitud recibida</p>
+    <h1 style="max-width:16ch">Gracias.</h1>
+    <p class="lead">Te escribo en menos de 24 horas desde <strong style="color:var(--text)">Felipesanchezm54@gmail.com</strong> para agendar 20 minutos.</p>
+    <p class="email-box" style="margin-top:12px">
+      <span class="email">Felipesanchezm54@gmail.com</span>
+      <button class="btn btn--small" type="button" data-copy="Felipesanchezm54@gmail.com">Copiar correo</button>
+      <span class="copy-ok" role="status"></span>
+    </p>
+    <p style="margin-top:28px"><a class="btn" href="/">Volver a la página</a></p>
+  </main>
+  <footer><div class="wrap foot"><span>© 2026 PRCPTA · <a href="/privacidad">Política de datos</a></span></div></footer>
+  <script>
+    document.querySelectorAll('[data-copy]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var m = b.parentElement.querySelector('.copy-ok');
+        var done = function (ok) { m.textContent = ok ? 'Copiado' : 'Selecciónalo y cópialo'; setTimeout(function () { m.textContent = ''; }, 2500); };
+        if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.copy).then(function () { done(true); }, function () { done(false); });
+        else done(false);
+      });
+    });
+  </script>
+</body>
+</html>

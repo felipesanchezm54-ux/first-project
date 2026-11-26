@@ -1,0 +1,14 @@
+{
+  "name": "prcpta-landing",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Prototipo 1 de PRCPTA: landing que mide su propia atención.",
+  "scripts": {
+    "dev": "netlify dev",
+    "deploy": "netlify deploy --prod"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^8.2.0"
+  }
+}

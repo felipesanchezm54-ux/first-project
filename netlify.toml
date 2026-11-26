@@ -1,0 +1,75 @@
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"
+
+[dev]
+  framework = "#static"
+  port = 8888
+
+# Rutas limpias
+[[redirects]]
+  from = "/panel"
+  to = "/panel.html"
+  status = 200
+
+[[redirects]]
+  from = "/gracias"
+  to = "/gracias.html"
+  status = 200
+
+[[redirects]]
+  from = "/privacidad"
+  to = "/privacidad.html"
+  status = 200
+
+# No publicar archivos internos del repositorio
+[[redirects]]
+  from = "/netlify/*"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/README.md"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/package-lock.json"
+  to = "/404"
+  status = 404
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(self), microphone=(), geolocation=()"
+    X-Frame-Options = "SAMEORIGIN"
+
+[[headers]]
+  for = "/panel*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+    Cache-Control = "no-store"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600"
