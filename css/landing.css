@@ -85,7 +85,7 @@ section { position: relative; padding: clamp(40px, 4.4vw, 60px) 0; }
 .nav { display: flex; gap: 32px; }
 .nav a { color: var(--soft); text-decoration: none; font-size: 15px; }
 .nav a:hover { color: var(--text); }
-.hero__body { position: relative; flex: 1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 440px); gap: 32px; align-items: center; padding-bottom: 72px; }
+.hero__body { position: relative; flex: 1; display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 440px); gap: 32px; align-items: center; padding-bottom: 124px; }
 .whisper { font-family: var(--mono); font-size: 13px; color: var(--cyan); margin-bottom: 14px; }
 .hero h1 { font-family: var(--display); font-weight: 800; text-transform: uppercase; font-size: clamp(38px, min(4.9vw, 8.6vh), 76px); line-height: .92; max-width: 16ch; letter-spacing: .5px; }
 .hero h1 .hl { color: var(--cyan); display: block; }
@@ -108,7 +108,7 @@ section { position: relative; padding: clamp(40px, 4.4vw, 60px) 0; }
 .iris__glint { position: absolute; left: 30%; top: 22%; width: 15%; height: 11%; border-radius: 50%; background: rgba(255,255,255,.85); }
 .eyeball__spec { position: absolute; left: 18%; top: 12%; width: 32%; height: 18%; border-radius: 50%; background: radial-gradient(ellipse, rgba(255,255,255,.8), transparent 70%); }
 .eye-stage .reticle { position: absolute; inset: 0; pointer-events: none; }
-.hud { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 28px; display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); }
+.hud { position: absolute; left: var(--gutter); right: var(--gutter); bottom: 78px; display: flex; justify-content: space-between; gap: 18px; flex-wrap: wrap; padding-top: 16px; border-top: 1px solid var(--line); font-family: var(--mono); font-size: 12px; color: var(--muted); }
 .hud strong { color: var(--cyan); font-weight: 500; }
 .hud .z { color: var(--text); }
 .hud .m { color: var(--cyan); }
