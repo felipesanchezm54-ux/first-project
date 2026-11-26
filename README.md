@@ -10,10 +10,11 @@ gracias.html        Confirmación del formulario de contacto
 privacidad.html     Política de datos (Ley 1581 de 2012, Decreto 1377 de 2013)
 panel.html          Panel de resultados (/panel, con contraseña)
 404.html
-css/site.css        Identidad visual y página
+css/landing.css     Diseño de la landing (index.html)
+css/site.css        Estilos de gracias, privacidad, 404 y base del panel
 css/panel.css       Estilos del panel
 js/tracker.js       Rastreador propio (sin librerías)
-js/main.js          Consentimiento, demo, logotipo, copiar correo, modo experto
+js/main.js          Consentimiento, ojo del hero, demo 3D, comparador, proceso, formulario por pasos, modo experto
 js/lab.js           Modo laboratorio con WebGazer.js (se carga solo al activarlo)
 js/panel.js         Indicadores, mapas de calor en canvas, embudo, exportación
 netlify/functions/collect.mjs     Recibe lotes y guarda en Netlify Blobs

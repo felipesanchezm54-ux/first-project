@@ -1,15 +1,15 @@
 /* PRCPTA · laboratorio de percepción */
 :root {
-  --bg: #0B1220;
-  --panel: #111B2E;
-  --panel-2: #0E1728;
-  --text: #EAF0F7;
-  --muted: #8FA0B5;
-  --line: #22304A;
-  --cold: #3E7BD6;
-  --mid: #2FB6A3;
-  --hot: #FFB23E;
-  --peak: #FF5A3C;
+  --bg: #06080F;
+  --panel: #0D1220;
+  --panel-2: #111830;
+  --text: #EEF2FA;
+  --muted: #9AA6BF;
+  --line: #1E2740;
+  --cold: #4C7DFF;
+  --mid: #22D3EE;
+  --hot: #FFB21E;
+  --peak: #FF3D3D;
   --radius: 14px;
   --f-title: "Big Shoulders Display", "Arial Narrow", Impact, sans-serif;
   --f-text: "Instrument Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
