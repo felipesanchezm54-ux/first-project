@@ -35,11 +35,6 @@ function setupExpert() {
   if (params.get('experto') === '1') store.set('prcpta_experto', '1');
   if (store.get('prcpta_experto') !== '1') return;
   document.body.classList.add('is-experto');
-  $$('[data-scale]').forEach(box => {
-    const name = box.dataset.scale;
-    box.innerHTML = [1, 2, 3, 4, 5].map(n =>
-      `<label class="choice"><input type="radio" name="${name}" value="${n}" required><span>${n}</span></label>`).join('');
-  });
   $('#fab').addEventListener('click', () => T.event('clic_opinion'));
   const form = $('#op-form');
   form.addEventListener('focusin', () => T.event('opinion_inicio', null, true));
