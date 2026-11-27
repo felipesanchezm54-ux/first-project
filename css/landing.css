@@ -363,3 +363,11 @@ body:has(#consent:not([hidden])) .fab { display: none !important; }
 /* Mientras el empaque o el formulario de opinión están en pantalla, los botones flotantes se apartan */
 body.is-busy .fab, body.is-busy .status-pill { opacity: 0; pointer-events: none; }
 .fab, .status-pill { transition: opacity .2s; }
+
+/* Modo laboratorio: la vista previa de la cámara queda por encima de la calibración */
+#webgazerVideoContainer { z-index: 95 !important; border-radius: 12px; overflow: hidden; box-shadow: 0 0 0 2px var(--cyan); }
+#webgazerVideoContainer, #webgazerVideoContainer * { pointer-events: none !important; }
+body.is-calibrating #webgazerVideoContainer { top: 21vh !important; left: 50% !important; transform: translateX(-50%); }
+#webgazerGazeDot { z-index: 96 !important; }
+.calib { background: rgba(6,8,15,.88); }
+.calib .msg { top: 68%; }
