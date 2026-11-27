@@ -78,3 +78,8 @@
   for = "/vendor/*"
   [headers.values]
     Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/vendor/webgazer/mediapipe/face_mesh/*.data"
+  [headers.values]
+    Content-Type = "application/octet-stream"
